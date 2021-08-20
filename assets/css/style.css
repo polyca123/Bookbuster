@@ -5,3 +5,13 @@
 #logo {
   max-height: 4rem;
 }
+
+#font {
+  font-family: 'Notable', sans-serif;
+  font-size: 50px;
+  color: #ffb327;
+}
+
+.subtitle {
+  font-size: 25px;
+}
