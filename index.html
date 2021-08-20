@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="background">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,8 +10,61 @@
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
+
+  <section class="hero is-info is-large">
+    <div class="hero-head">
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item">
+              <img src="./assets/images/Bookbuster.png" id="logo">
+            </a>
+            <span class="navbar-burger" data-target="navbarMenuHeroB">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </div>
+          <div id="navbarMenuHeroB" class="navbar-menu">
+            <div class="navbar-end">
+              <a class="navbar-item is-active" href="./saved.html">
+                Saved
+              </a>
+              <a class="navbar-item" href="./favorite.html">
+                Favorite
+              </a>
+              <span class="navbar-item">
+              </span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
   
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <p class="title">
+          BookBuster
+        </p>
+        <p class="subtitle">
+          Subtitle
+        </p>
+      </div>
+    </div>
   
+  </section>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+        is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+      </p>
+    </div>
+  </footer>
+  
+
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="./assets/JS/app.js"></script>
 </body>
