@@ -38,3 +38,15 @@
 #search {
   justify-content: center;
 }
+
+#heightAdj {
+  height: 100%;
+}
+
+#box {
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}

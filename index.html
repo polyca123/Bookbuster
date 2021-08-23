@@ -55,22 +55,31 @@
         </p>
         <div class="field has-addons" id="search">
           <div class="control">
-            <input class="input is-link is-rounded" type="text" placeholder="Title">
+            <input class="input is-link is-rounded" type="text" placeholder="Title" id="searchInput">
           </div>
           <div class="control">
-            <a class="button is-link">
+            <button id="mainSearch" class="button is-link">
               Search
-            </a>
+            </button>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="columns is-desktop is-centered">
+  <header class="columns is-desktop is-centered">
+    <div class="column is-narrow is-half" id="box">
+      <p class="title">Movies</p>
+    </div>
+    <div class="column is-narrow is-half" id="box">
+      <p class="title">Books</p>
+    </div>
+  </header>
+
+  <article class="columns is-desktop is-centered">
   
-    <div class="column is-narrow is-half">
-      <div class="card">
+    <div class="column is-narrow is-half" id="box">
+      <div class="card" id="heightAdj">
         <div class="card-content">
           <div class="media">
             <div class="media-left">
@@ -94,7 +103,7 @@
       </div>
     </div>
   
-    <div class="column is-narrow is-half">
+    <div class="column is-narrow is-half" id="box">
       <div class="card">
         <div class="card-content">
           <div class="media">
@@ -121,7 +130,7 @@
       </div>
     </div>
   
-  </div>
+  </article>
 
   <footer class="footer">
     <div class="bd-footer-title has-text-centered">

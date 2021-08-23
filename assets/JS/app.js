@@ -24,3 +24,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 })
+
+// Movie api key = 7c6c005c
+let movie = []
+const saved = JSON.parse(localStorage.getItem('saved')) || []
+
+document.getElementById('mainSearch').addEventListener('click', event => {
+  event.preventDefault()
+
+  const searchInput = document.getElementById('searchInput').value
+
+  axios.get(`http://www.omdbapi.com/?apikey=7c6c005c&t=${searchInput}`)
+    .then(res => {
+      document.getElementById('searchInput').value = ''
+
+      console.log(res)
+    })
+    .catch(err => console.log(err))
+})
