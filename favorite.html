@@ -41,130 +41,262 @@
     </div>
   </nav>
 
+  <!-- form for testing to see how elements show - to be deleted later -->
+  <div class="field">
+    <label class="label">Book Search for testing</label>
+    <div class="control">
+      <input class="input" type="text" placeholder="Text input" id="searchText">
+    </div>
+    <p class="help">Thelp text</p>
+    <div class="control">
+      <button class="button is-primary" id="searchBtn">Submit</button>
+    </div>
+  </div>
+
+  <!-- One Column Header for Page Title -->
+  <div class="container">
+    <div class="section">
+      <div class="columns">
+        <div class="column has-text-centered" id="favoritesHeader">
+          <h1 class="title">Favorites</h1><hr>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Column Header Page Title End -->
+
   <!-- Column Headers -->
-<div class="columns is-mobile is-centered">
+  <div class="columns is-mobile is-centered">
 
-  <div class="column is-narrow is-half">
-    <p class="bd-notification is-primary">
-      Favorite Movies
-    </p>
+    <div class="column is-narrow is-half">
+      <p class="bd-notification is-primary">
+        Favorite Movies
+      </p>
+    </div>
+
+    <div class="column is-narrow is-half">
+      <p class="bd-notification is-primary">
+        Favorite Books
+      </p>
+    </div>
+
+  </div>
+  <!-- Column Headers End -->
+
+  <div class="columns is-desktop is-centered">
+
+    <div class="column is-narrow is-half">
+      <div class="card">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image">
+                <img src="./assets/images/Bookbuster.png" alt="Placeholder image" id="poster">
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-1">Star Wars: Episode III - Revenge of the Sith</p>
+              <p class="subtitle is-1">Rating: 80%</p>
+            </div>
+          </div>
+
+          <div class="content">
+            some text
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="column is-narrow is-half">
+      <div class="card">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image">
+                <img src="./assets/images/Bookbuster.png" alt="Placeholder image" id="poster">
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-1">Revenge of the Sith: Star Wars: Episode III</p>
+              <p class="subtitle is-1">Rating: 4.5/5 Stars</p>
+            </div>
+          </div>
+
+          <div class="content">
+            some text
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <div class="column is-narrow is-half">
-    <p class="bd-notification is-primary">
-      Favorite Books
-    </p>
-  </div>
 
+
+
+<!-- For testing items to grab id and content for buttons -->
+<div class="container">
+  <div id="movies"></div>
 </div>
-<!-- Column Headers End -->
 
-<!-- Column Content Card Example Start -->
-<div class="columns is-mobile is-centered">
-
-  <div class="column is-narrow is-half">
-    <div class="card">
-      <div class="card-content">
-        <div class="media">
-          <div class="media-left">
-            <figure class="image">
-              <img src="./assets/images/Bookbuster.png" alt="Placeholder image">
-            </figure>
-          </div>
-          <div class="media-content">
-            <p class="title is-1">Movie Title</p>
-            <p class="subtitle is-1">Plot</p>
-          </div>
-        </div>
-    
-        <div class="content">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Phasellus nec iaculis mauris.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="column is-narrow is-half">
-    <div class="card">
-      <div class="card-content">
-        <div class="media">
-          <div class="media-left">
-            <figure class="image">
-              <img src="./assets/images/Bookbuster.png" alt="Placeholder image">
-            </figure>
-          </div>
-          <div class="media-content">
-            <p class="title is-1">Movie Title</p>
-            <p class="subtitle is-1">Plot</p>
-          </div>
-        </div>
-    
-        <div class="content">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Phasellus nec iaculis mauris.
-        </div>
-      </div>
-    </div>
-  </div>
-
+<div class="container">
+  <div id="books"></div>
 </div>
-<!-- Column Content Card End -->
 
-<!-- Column Content Card Example Start -->
-<div class="columns is-mobile is-centered">
 
-  <div class="column is-narrow is-half">
-    <div class="card">
-      <div class="card-content">
-        <div class="media">
-          <div class="media-left">
-            <figure class="image">
-              <img id="imagetest" src="./assets/images/Bookbuster.png" alt="Placeholder image">
-            </figure>
-          </div>
-          <div class="media-content">
-            <p class="">Movie Title</p>
-            <p class="">Plot</p>
-          </div>
-        </div>
-    
-        <div class="content">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Phasellus nec iaculis mauris.
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="column is-narrow is-half">
-    <div class="card">
-      <div class="card-content">
-        <div class="media">
-          <div class="media-center">
-            <figure class="image">
-              <img id="imagetest" src="./assets/images/Bookbuster.png" alt="Placeholder image">
-            </figure>
-          </div>
-        </div>
 
-        <div class="media-content">
-          <p class="">Movie Title</p>
-          <p class="">Plot</p>
-        </div>
-    
-        <div class="content">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Phasellus nec iaculis mauris.
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-<!-- Column Content Card End -->
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="./assets/JS/app.js"></script>
+
+  <!-- for testing -->
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <script>
+
+  const axios = window.axios
+  const localStorage = window.localStorage
+
+  let books = []
+  let favorite = JSON.parse(localStorage.getItem('favorite')) || []
+
+  const apiKey = '33420856'
+
+  document.getElementById('searchBtn').addEventListener('click', event => {
+    event.preventDefault()
+
+    let searchText = document.getElementById('searchText').value
+
+    console.log(searchText);
+
+    // books
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchText}`)
+      .then(bookRes => {
+        console.log(bookRes);
+
+        let books = bookRes.data.items
+        let bookOutput = ''
+
+        document.getElementById('books').innerHTML = ''
+        books.forEach(book => {
+
+          bookOutput +=
+           `
+          <div class="column is-narrow is-half">
+            <div class="card">
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left">
+                    <figure class="image">
+                      <img src="${book.volumeInfo.imageLinks.smallThumbnail}" alt="Placeholder image" id="poster">
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <p class="title is-1">${book.volumeInfo.title}</p>
+                    <p class="subtitle is-1">${book.volumeInfo.averageRating}</p>
+                  </div>
+                </div>
+
+                <div class="content">
+                  ${book.volumeInfo.description}
+                </div>
+                <button class="button deleteBookFav" type="submit">Remove from Favorites</button>
+                <button class="button saveBook" type="submit" data-id="${book.id}">Save</button>
+                <h1>${book.id}</h1>
+              </div>
+            </div>
+          </div>
+          `
+        })
+        document.getElementById('books').innerHTML = bookOutput
+      })
+      .catch(err => console.log(err));
+
+
+      // movies
+      axios.get(`http://www.omdbapi.com/?apikey=${apiKey}&s=${searchText}`)
+        .then(movieRes => {
+
+          console.log(movieRes);
+
+          let movies = movieRes.data.Search
+          console.log(movies);
+          let movieOutput = ''
+
+          document.getElementById('movies').innerHTML = ''
+          movies.forEach(movie => {
+
+            movieOutput += 
+            `
+            <div class="column is-narrow is-half">
+              <div class="card">
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-left">
+                      <figure class="image">
+                        <img src="${movie.Poster}" alt="${movie.Title}" id="poster">
+                      </figure>
+                    </div>
+                    <div class="media-content">
+                      <p class="title is-1">${movie.Title}</p>
+                      <p class="subtitle is-1">IMDB Rating ${movie}/10</p>
+                    </div>
+                  </div>
+            
+                  <div class="content">
+                    ${movie}
+                  </div>
+                  <button class="button deleteBookFav" type="submit">Remove from Favorites</button>
+                  <button class="button saveBook" type="submit" data-id="${movie}">Save</button>
+                  <h1>${movie}</h1>
+                </div>
+              </div>
+            </div>
+            `
+          })
+          document.getElementById('movies').innerHTML = movieOutput
+        })
+        .catch(err => console.log(err))
+
+  })
+
+
+
+  document.addEventListener('click', event => {
+    if (event.target.classList.contains('saveBook')) {
+      favorite.push(event.target.dataset.id)
+      console.log(favorite);
+      localStorage.setItem('favorite',JSON.stringify(favorite))
+      // event.target.parentNode.parentNode.remove()
+    }
+  })
+
+
+  document.addEventListener('click', event => {
+    if (event.target.classList.contains('deleteBookFav')) {
+      book = books.filter(book => book.id !== event.target.dataset.id)
+      localStorage.setItem('favorite',JSON.stringify(favorite))
+      event.target.parentNode.parentNode.parentNode.remove()
+    }
+  })
+
+
+//   let favorites = [
+//   {
+//     bookId: {
+//       title: ,
+//       img: ,
+//     }
+//   }
+// ]
+
+
+
+  </script>
+  
 </body>
 </html>
+
