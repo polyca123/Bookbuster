@@ -5,3 +5,30 @@
 #logo {
   max-height: 4rem;
 }
+
+.column {
+  margin-top: 5%;
+  border: black solid 3px;
+  padding: 1%;
+  margin-left: 21;
+  margin-right: 1%;
+  text-align: center;
+  background-color: #48cae4;
+}
+
+.center-text {
+  text-align: center
+}
+
+.fullSize {
+  height: 100%;
+}
+
+.cd {
+  display: flex;
+  flex-direction: column;
+}
+
+.ct{
+  flex:1;
+}

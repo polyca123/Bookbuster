@@ -7,10 +7,14 @@
   <title>Bookbuster</title>
   <link rel="stylesheet" href="./assets/css/reset.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
 
+  <!-- Main title NavBar -->
   <section class="hero is-info is-large">
     <div class="hero-head">
       <nav class="navbar">
@@ -28,7 +32,7 @@
           <div id="navbarMenuHeroB" class="navbar-menu">
             <div class="navbar-end">
               <a class="navbar-item is-active" href="./saved.html">
-                Saved
+                Saved Items
               </a>
               <a class="navbar-item" href="./favorite.html">
                 Favorite
@@ -43,23 +47,86 @@
   
     <div class="hero-body">
       <div class="container has-text-centered">
-        <p class="title">
+        <p class="title" id="font">
           BookBuster
         </p>
         <p class="subtitle">
-          Subtitle
+          Search for your favorite books and movies all in one place!
         </p>
+        <div class="field has-addons" id="search">
+          <div class="control">
+            <input class="input is-link is-rounded" type="text" placeholder="Title">
+          </div>
+          <div class="control">
+            <a class="button is-link">
+              Search
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="columns is-desktop is-centered">
+  
+    <div class="column is-narrow is-half">
+      <div class="card">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image">
+                <img src="./assets/images/movie.jpg" alt="Placeholder image" id="poster">
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-1">Star Wars: Episode III - Revenge of the Sith</p>
+              <p class="subtitle is-1">Rating: 80%</p>
+            </div>
+          </div>
+  
+          <div class="content">
+            Star Wars: Episode III – Revenge of the Sith is a 2005 American epic space-opera film written and directed by George
+            Lucas. It stars Ewan McGregor, Natalie Portman, Hayden Christensen, Ian McDiarmid, Samuel L. Jackson, Christopher Lee,
+            Anthony Daniels, Kenny Baker and Frank Oz. It is the final installment in the Star Wars prequel trilogy, the third
+            chapter in the Skywalker saga and the sixth Star Wars film to be released overall.
+          </div>
+        </div>
       </div>
     </div>
   
-  </section>
+    <div class="column is-narrow is-half">
+      <div class="card">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image">
+                <img src="./assets/images/Book.jfif" alt="Placeholder image" id="poster">
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-1">Revenge of the Sith: Star Wars: Episode III</p>
+              <p class="subtitle is-1">Rating: 4.5/5 Stars</p>
+            </div>
+          </div>
+  
+          <div class="content">
+            After years of civil war, the Separatists have battered the already faltering Republic nearly to the point of collapse.
+            On Coruscant, the Senate watches anxiously as Supreme Chancellor Palpatine aggressively strips away more and more
+            constitutional liberties in the name of safeguarding the Republic. Yoda, Mace Windu, and their fellow Masters grapple
+            with the Chancellor’ s disturbing move to assume control of the Jedi Council. And Anakin Skywalker, the prophesied
+            Chosen One, destined to bring balance to the Force, is increasingly consumed by his fear that his secret love, Senator
+            Padmé Amidala, will die.
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
 
   <footer class="footer">
-    <div class="content has-text-centered">
+    <div class="bd-footer-title has-text-centered">
       <p>
-        <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-        is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+        <strong>BOOKBUSTER</strong> by Minh, Paul, Kenny, Scott and Sam. Sponsored by Blockbuster, IMBD and Google Books. License: <a href=""></a>
       </p>
     </div>
   </footer>
