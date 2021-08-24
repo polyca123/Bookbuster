@@ -47,106 +47,122 @@
     <div class="control">
       <input class="input" type="text" placeholder="Text input" id="searchText">
     </div>
-    <p class="help">Thelp text</p>
+    <p class="help">help text</p>
     <div class="control">
       <button class="button is-primary" id="searchBtn">Submit</button>
+      <button class="button is-primary" id="clearStorage">Clear</button>
+
     </div>
   </div>
 
-  <!-- One Column Header for Page Title -->
-  <div class="container">
-    <div class="section">
-      <div class="columns">
-        <div class="column has-text-centered" id="favoritesHeader">
-          <h1 class="title">Favorites</h1><hr>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Column Header Page Title End -->
 
-  <!-- Column Headers -->
   <div class="columns is-mobile is-centered">
-
-    <div class="column is-narrow is-half">
-      <p class="bd-notification is-primary">
-        Favorite Movies
-      </p>
+  
+    <div class="column is-narrow is-half columnHeader">
+      <h1>Favorite Movies!</h1>
     </div>
-
-    <div class="column is-narrow is-half">
-      <p class="bd-notification is-primary">
-        Favorite Books
-      </p>
+  
+    <div class="column is-narrow is-half columnHeader">
+      <h1>Favorite Books!</h1>
     </div>
-
+  
   </div>
-  <!-- Column Headers End -->
 
-  <div class="columns is-desktop is-centered">
-
+  <div class="columns is-mobile is-centered">
+  
     <div class="column is-narrow is-half">
-      <div class="card">
-        <div class="card-content">
+      <div class="card fullSize cd">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src="./assets/images/Bookbuster.png" alt="Placeholder image">
+          </figure>
+        </div>
+        <div class="card-content ct">
           <div class="media">
-            <div class="media-left">
-              <figure class="image">
-                <img src="./assets/images/Bookbuster.png" alt="Placeholder image" id="poster">
-              </figure>
-            </div>
             <div class="media-content">
-              <p class="title is-1">Star Wars: Episode III - Revenge of the Sith</p>
-              <p class="subtitle is-1">Rating: 80%</p>
+              <p class="title is-4">Movie Title</p>
+              <p class="subtitle is-6">Movie Description</p>
             </div>
           </div>
 
           <div class="content">
             some text
+            <br>
+          </div>
+          <div class="icos">
+            <ion-icon name="heart-outline"></ion-icon>
+            <ion-icon name="bookmark-outline"></ion-icon>
           </div>
         </div>
       </div>
     </div>
-
+  
     <div class="column is-narrow is-half">
       <div class="card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src="./assets/images/Bookbuster.png" alt="Placeholder image">
+          </figure>
+        </div>
         <div class="card-content">
           <div class="media">
-            <div class="media-left">
-              <figure class="image">
-                <img src="./assets/images/Bookbuster.png" alt="Placeholder image" id="poster">
-              </figure>
-            </div>
+            <!-- <div class="media-left">
+                    <figure class="image is-48x48">
+                      <img src="./assets/images/Bookbuster.png" alt="Placeholder image">
+                    </figure>
+                  </div> -->
             <div class="media-content">
-              <p class="title is-1">Revenge of the Sith: Star Wars: Episode III</p>
-              <p class="subtitle is-1">Rating: 4.5/5 Stars</p>
+              <p class="title is-4">Movie Title</p>
+              <p class="subtitle is-6">Movie Description</p>
             </div>
           </div>
-
+      
           <div class="content">
             some text
+            <br>
           </div>
         </div>
       </div>
+      </div>
     </div>
+  
+  </div>
 
+
+  <div class="columns is-mobile is-centered">
+  
+    <div class="column is-narrow is-half favoriteMoviesCol" id="movies">
+    </div>
+  
+    <div class="column is-narrow is-half favoriteBooksCol" id="books">
+    </div>
+  
   </div>
 
 
 
 
 <!-- For testing items to grab id and content for buttons -->
-<div class="container">
+<!-- <div class="container">
   <div id="movies"></div>
 </div>
 
 <div class="container">
   <div id="books"></div>
+</div> -->
+
+<!-- <div class="container">
+  <div id="favoriteMovies"></div>
 </div>
 
+<div class="container">
+  <div id="favoriteBooks"></div>
+</div> -->
 
 
 
-
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="./assets/JS/app.js"></script>
 
@@ -159,9 +175,6 @@
 
   const axios = window.axios
   const localStorage = window.localStorage
-
-  let books = []
-  let favorite = JSON.parse(localStorage.getItem('favorite')) || []
 
   const apiKey = '33420856'
 
@@ -186,26 +199,30 @@
           bookOutput +=
            `
           <div class="column is-narrow is-half">
-            <div class="card">
-              <div class="card-content">
+            <div class="card fullSize cd">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="${book.volumeInfo.imageLinks.smallThumbnail}" alt="Placeholder image">
+                </figure>
+              </div>
+              <div class="card-content ct">
                 <div class="media">
-                  <div class="media-left">
-                    <figure class="image">
-                      <img src="${book.volumeInfo.imageLinks.smallThumbnail}" alt="Placeholder image" id="poster">
-                    </figure>
-                  </div>
                   <div class="media-content">
-                    <p class="title is-1">${book.volumeInfo.title}</p>
-                    <p class="subtitle is-1">${book.volumeInfo.averageRating}</p>
+                    <p class="title is-4">${book.volumeInfo.title}</p>
+                    <p class="subtitle is-6">${book.volumeInfo.averageRating}</p>
                   </div>
                 </div>
 
                 <div class="content">
                   ${book.volumeInfo.description}
+                  <h1>${book.id}</h1>
+                  <br>
                 </div>
-                <button class="button deleteBookFav" type="submit">Remove from Favorites</button>
-                <button class="button saveBook" type="submit" data-id="${book.id}">Save</button>
-                <h1>${book.id}</h1>
+                <div class="icos">
+                  <button class="button deleteBookFav" type="submit">Remove from Favorites</button>
+                  <button class="button favBook" type="submit" data-id="fav${book.id}"><ion-icon name="bookmark-outline"></ion-icon></button>
+                  <button class="button saveBook" type="submit" data-id="saved${book.id}"><ion-icon name="heart-outline"></ion-icon></button>
+                </div>
               </div>
             </div>
           </div>
@@ -232,26 +249,30 @@
             movieOutput += 
             `
             <div class="column is-narrow is-half">
-              <div class="card">
-                <div class="card-content">
+              <div class="card fullSize cd">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="${movie.Poster}" alt="${movie.Title}">
+                  </figure>
+                </div>
+                <div class="card-content ct">
                   <div class="media">
-                    <div class="media-left">
-                      <figure class="image">
-                        <img src="${movie.Poster}" alt="${movie.Title}" id="poster">
-                      </figure>
-                    </div>
                     <div class="media-content">
-                      <p class="title is-1">${movie.Title}</p>
-                      <p class="subtitle is-1">IMDB Rating ${movie}/10</p>
+                      <p class="title is-4">${movie.Title}</p>
+                      <p class="subtitle is-6">${movie}</p>
                     </div>
                   </div>
-            
+
                   <div class="content">
-                    ${movie}
+                    ${movie.Year}
+                    <h1>${movie.imdbID}</h1>
+                    <br>
                   </div>
-                  <button class="button deleteBookFav" type="submit">Remove from Favorites</button>
-                  <button class="button saveBook" type="submit" data-id="${movie}">Save</button>
-                  <h1>${movie}</h1>
+                  <div class="icos">
+                    <button class="button deleteMovieFav" type="submit">Remove from Favorites</button>
+                    <button class="button favMovie" type="submit" data-id="fav${movie.imdbID}"><ion-icon name="bookmark" class="favMovieIcon"></ion-icon></button>
+                    <button class="button saveMovie" type="submit" data-id="saved${movie.imdbID}"><ion-icon name="heart" class="saveMovieIcon"></ion-icon></button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -263,25 +284,169 @@
 
   })
 
+  // let books = []
 
+  let favoriteBooks = JSON.parse(localStorage.getItem('favoriteBooks')) || []
+  let favoriteMovies = JSON.parse(localStorage.getItem('favoriteMovies')) || []
+  let savedBooks = JSON.parse(localStorage.getItem('savedBooks')) || []
+  let savedMovies = JSON.parse(localStorage.getItem('savedMovies')) || []
 
   document.addEventListener('click', event => {
-    if (event.target.classList.contains('saveBook')) {
-      favorite.push(event.target.dataset.id)
-      console.log(favorite);
-      localStorage.setItem('favorite',JSON.stringify(favorite))
-      // event.target.parentNode.parentNode.remove()
+
+    let button
+
+    if (event.target.parentNode.classList.contains('button')) {
+      button = event.target.parentNode
+    } else if (event.target.classList.contains('button')){
+      button = event.target
     }
+
+    console.log(button);
+
+    if (button.classList.contains('favBook')) {
+      if (!favoriteBooks.includes(button.dataset.id)) {
+        favoriteBooks.push(button.dataset.id)
+        console.log(favoriteBooks);
+        localStorage.setItem('favoriteBooks', JSON.stringify(favoriteBooks))
+      // event.target.parentNode.parentNode.remove()
+      } 
+    }
+
+    // if (button.classList.contains('favMovie')) {
+    //   if (!favoriteMovies.includes(button.dataset.id)) {
+    //     favoriteMovies.push(event.target.dataset.id)
+    //     console.log(favoriteMovies);
+    //     localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies))
+    //   // event.target.parentNode.parentNode.remove()
+    //   } 
+    // }
+    
+    // if (button.classList.contains('saveBook')) {
+    //   if (!savedBooks.includes(button.dataset.id)) {
+    //     savedBooks.push(event.target.dataset.id)
+    //     console.log(savedBooks);
+    //     localStorage.setItem('savedBooks', JSON.stringify(savedBooks))
+    //   // event.target.parentNode.parentNode.remove()
+    //   } 
+    // }
+
+    // if (button.classList.contains('saveMovie')) {
+    //   if (!savedBooks.includes(button.dataset.id)) {
+    //     savedMovies.push(event.target.dataset.id)
+    //     console.log(savedMovies);
+    //     localStorage.setItem('savedMovies', JSON.stringify(savedMovies))
+    //   // event.target.parentNode.parentNode.remove()
+    //   } 
+    // }
+
   })
+
+document.addEventListener('click', event => {
+
+    let button
+
+    if (event.target.parentNode.classList.contains('button')) {
+      button = event.target.parentNode
+    } else if (event.target.classList.contains('button')) {
+      button = event.target
+    }
+
+    console.log(button);
+
+    if (button.classList.contains('favMovie')) {
+      if (!favoriteMovies.includes(button.dataset.id)) {
+        favoriteMovies.push(event.target.dataset.id)
+        console.log(favoriteMovies);
+        localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies))
+      // event.target.parentNode.parentNode.remove()
+      } 
+    }
+
+  })
+
+
+
+
+
+  // document.addEventListener('click', event => {
+  //   if (event.target.classList.contains('favMovie') && event.target.dataset.id.contains('fav')) {
+  //     favoriteMovies.push(event.target.dataset.id)
+  //     console.log(favoriteMovies);
+  //     localStorage.setItem('favoriteMovies',JSON.stringify(favoriteMovies))
+  //     // event.target.parentNode.parentNode.remove()
+  //   }
+  // })
+
+  // document.addEventListener('click', event => {
+  //   if (event.target.classList.contains('saveBook') && event.target.dataset.id.contains('saved')) {
+  //     savedBooks.push(event.target.dataset.id)
+  //     console.log(savedBooks);
+  //     localStorage.setItem('savedBooks',JSON.stringify(savedBooks))
+  //     // event.target.parentNode.parentNode.remove()
+  //   }
+  // })
+
+  // document.addEventListener('click', event => {
+  //   if (event.target.classList.contains('saveMovie') && event.target.dataset.id.contains('saved')) {
+  //     savedMovies.push(event.target.dataset.id)
+  //     console.log(savedMovies);
+  //     localStorage.setItem('savedMovies',JSON.stringify(savedMovies))
+  //     // event.target.parentNode.parentNode.remove()
+  //   }
+  // })
 
 
   document.addEventListener('click', event => {
     if (event.target.classList.contains('deleteBookFav')) {
-      book = books.filter(book => book.id !== event.target.dataset.id)
-      localStorage.setItem('favorite',JSON.stringify(favorite))
+      favoriteBooks = favoriteBooks.filter(book => book.id !== event.target.dataset.id)
+      localStorage.setItem('favoriteBooks',JSON.stringify(favoriteBooks))
       event.target.parentNode.parentNode.parentNode.remove()
     }
   })
+
+  document.addEventListener('click', event => {
+    if (event.target.classList.contains('deleteMovieFav')) {
+      favoriteMovies = favoriteMovies.filter(book => book.id !== event.target.dataset.id)
+      localStorage.setItem('favoriteMovies',JSON.stringify(favoriteMovies))
+      event.target.parentNode.parentNode.parentNode.remove()
+    }
+  })
+
+
+  // if (favoriteBooks.length !== 0) {
+  //   document.getElementById('favoriteBooks').innerHTML = ''
+
+  //   favoriteBooks.forEach(book => {
+  //     bookElem = 
+  //     `
+  //         <div class="column is-narrow is-half">
+  //           <div class="card">
+  //             <div class="card-content">
+  //               <div class="media">
+  //                 <div class="media-left">
+  //                   <figure class="image">
+  //                     <img src="${book.volumeInfo.imageLinks.smallThumbnail}" alt="Placeholder image" id="poster">
+  //                   </figure>
+  //                 </div>
+  //                 <div class="media-content">
+  //                   <p class="title is-1">${book.volumeInfo.title}</p>
+  //                   <p class="subtitle is-1">${book.volumeInfo.averageRating}</p>
+  //                 </div>
+  //               </div>
+
+  //               <div class="content">
+  //                 ${book.volumeInfo.description}
+  //               </div>
+  //               <button class="button deleteBookFav" type="submit">Remove from Favorites</button>
+  //               <button class="button saveBook" type="submit" data-id="${book.id}">Save</button>
+  //               <h1>${book.id}</h1>
+  //             </div>
+  //           </div>
+  //         </div>
+  //         `
+  //         document.getElementById('favoriteBooks').append(bookElem)
+  //   });
+  // }
 
 
 //   let favorites = [
@@ -293,6 +458,10 @@
 //   }
 // ]
 
+  document.getElementById('clearStorage').addEventListener('click', event => {
+    event.preventDefault()
+    localStorage.clear()
+  })
 
 
   </script>
