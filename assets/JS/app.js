@@ -37,8 +37,24 @@ document.getElementById('mainSearch').addEventListener('click', event => {
   axios.get(`http://www.omdbapi.com/?apikey=7c6c005c&t=${searchInput}`)
     .then(res => {
       document.getElementById('searchInput').value = ''
+      console.log(res)
+      let movie = res.data
+      document.getElementById('movie').innerHTML = `
+      <img src="${movie.Poster}" alt="Placeholder image" id="poster">
+      `
+    })
+    .catch(err => console.log(err))
+
+  axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchInput}`)
+    .then(res => {
+      document.getElementById('searchInput').value = ''
 
       console.log(res)
+      let book = res.data.items[0]
+      document.getElementById('book').innerHTML = `
+      <img src="${book.volumeInfo.imageLinks.thumbnail}">
+      `
+
     })
     .catch(err => console.log(err))
 })
