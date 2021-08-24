@@ -140,27 +140,6 @@
   </div>
 
 
-
-
-<!-- For testing items to grab id and content for buttons -->
-<!-- <div class="container">
-  <div id="movies"></div>
-</div>
-
-<div class="container">
-  <div id="books"></div>
-</div> -->
-
-<!-- <div class="container">
-  <div id="favoriteMovies"></div>
-</div>
-
-<div class="container">
-  <div id="favoriteBooks"></div>
-</div> -->
-
-
-
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -284,8 +263,6 @@
 
   })
 
-  // let books = []
-
   let favoriteBooks = JSON.parse(localStorage.getItem('favoriteBooks')) || []
   let favoriteMovies = JSON.parse(localStorage.getItem('favoriteMovies')) || []
   let savedBooks = JSON.parse(localStorage.getItem('savedBooks')) || []
@@ -312,89 +289,33 @@
       } 
     }
 
-    // if (button.classList.contains('favMovie')) {
-    //   if (!favoriteMovies.includes(button.dataset.id)) {
-    //     favoriteMovies.push(event.target.dataset.id)
-    //     console.log(favoriteMovies);
-    //     localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies))
-    //   // event.target.parentNode.parentNode.remove()
-    //   } 
-    // }
-    
-    // if (button.classList.contains('saveBook')) {
-    //   if (!savedBooks.includes(button.dataset.id)) {
-    //     savedBooks.push(event.target.dataset.id)
-    //     console.log(savedBooks);
-    //     localStorage.setItem('savedBooks', JSON.stringify(savedBooks))
-    //   // event.target.parentNode.parentNode.remove()
-    //   } 
-    // }
-
-    // if (button.classList.contains('saveMovie')) {
-    //   if (!savedBooks.includes(button.dataset.id)) {
-    //     savedMovies.push(event.target.dataset.id)
-    //     console.log(savedMovies);
-    //     localStorage.setItem('savedMovies', JSON.stringify(savedMovies))
-    //   // event.target.parentNode.parentNode.remove()
-    //   } 
-    // }
-
-  })
-
-document.addEventListener('click', event => {
-
-    let button
-
-    if (event.target.parentNode.classList.contains('button')) {
-      button = event.target.parentNode
-    } else if (event.target.classList.contains('button')) {
-      button = event.target
-    }
-
-    console.log(button);
-
     if (button.classList.contains('favMovie')) {
       if (!favoriteMovies.includes(button.dataset.id)) {
-        favoriteMovies.push(event.target.dataset.id)
+        favoriteMovies.push(button.dataset.id)
         console.log(favoriteMovies);
         localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies))
       // event.target.parentNode.parentNode.remove()
       } 
     }
 
+    if (button.classList.contains('saveBook')) {
+      if (!savedBooks.includes(button.dataset.id)) {
+        savedBooks.push(button.dataset.id)
+        console.log(savedBooks);
+        localStorage.setItem('savedBooks', JSON.stringify(savedBooks))
+      // event.target.parentNode.parentNode.remove()
+      } 
+    }
+
+    if (button.classList.contains('saveMovie')) {
+      if (!savedMovies.includes(button.dataset.id)) {
+        savedMovies.push(button.dataset.id)
+        console.log(savedMovies);
+        localStorage.setItem('savedMovies', JSON.stringify(savedMovies))
+      // event.target.parentNode.parentNode.remove()
+      } 
+    }
   })
-
-
-
-
-
-  // document.addEventListener('click', event => {
-  //   if (event.target.classList.contains('favMovie') && event.target.dataset.id.contains('fav')) {
-  //     favoriteMovies.push(event.target.dataset.id)
-  //     console.log(favoriteMovies);
-  //     localStorage.setItem('favoriteMovies',JSON.stringify(favoriteMovies))
-  //     // event.target.parentNode.parentNode.remove()
-  //   }
-  // })
-
-  // document.addEventListener('click', event => {
-  //   if (event.target.classList.contains('saveBook') && event.target.dataset.id.contains('saved')) {
-  //     savedBooks.push(event.target.dataset.id)
-  //     console.log(savedBooks);
-  //     localStorage.setItem('savedBooks',JSON.stringify(savedBooks))
-  //     // event.target.parentNode.parentNode.remove()
-  //   }
-  // })
-
-  // document.addEventListener('click', event => {
-  //   if (event.target.classList.contains('saveMovie') && event.target.dataset.id.contains('saved')) {
-  //     savedMovies.push(event.target.dataset.id)
-  //     console.log(savedMovies);
-  //     localStorage.setItem('savedMovies',JSON.stringify(savedMovies))
-  //     // event.target.parentNode.parentNode.remove()
-  //   }
-  // })
-
 
   document.addEventListener('click', event => {
     if (event.target.classList.contains('deleteBookFav')) {
