@@ -45,6 +45,7 @@
       </nav>
     </div>
   
+    <!-- Main Hero -->
     <div class="hero-body">
       <div class="container has-text-centered">
         <p class="title" id="font">
@@ -67,114 +68,79 @@
     </div>
   </section>
 
-  <header class="columns is-desktop is-centered">
-    <div class="column is-narrow is-half" id="box">
+  <!-- Heading -->
+  <header class="columns is-mobile is-centered">
+    <div class="column is-narrow is-one-third" >
       <p class="title">Movies</p>
     </div>
-    <div class="column is-narrow is-half" id="box">
+    <div class="column is-narrow is-one-third" >
       <p class="title">Books</p>
     </div>
   </header>
 
-  <article class="columns is-desktop is-centered">
-  
-    <div class="column is-narrow is-half box">
-      <div class="card" id="heightAdj">
-        <div class="card-content">
+  <!-- Cards -->
+  <article class="columns is-mobile is-centered" id="section">
+  <!-- Movie -->
+    <div class="column is-narrow is-one-third" id="movies">
+      <div class="card fullSize cd">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img id="poster" src="./assets/images/movie.jpg" alt="Movie poster">
+          </figure>
+        </div>
+        <div class="card-content ct">
           <div class="media">
-            <div class="media-left">
-              <figure class="image">
-                <img src="./assets/images/movie.jpg" alt="Placeholder image" id="poster">
-              </figure>
-            </div>
             <div class="media-content">
-              <p class="title is-1">Star Wars: Episode III - Revenge of the Sith</p>
-              <p class="subtitle is-1">Rating: 80%</p>
+              <p class="title is-4">Star Wars: Episode III - Revenge of the Sith</p>
+              <p class="subtitle is-6">Rating: 80%</p>
             </div>
           </div>
-  
+    
           <div class="content">
-            Star Wars: Episode III – Revenge of the Sith is a 2005 American epic space-opera film written and directed by George
-            Lucas. It stars Ewan McGregor, Natalie Portman, Hayden Christensen, Ian McDiarmid, Samuel L. Jackson, Christopher Lee,
-            Anthony Daniels, Kenny Baker and Frank Oz. It is the final installment in the Star Wars prequel trilogy, the third
-            chapter in the Skywalker saga and the sixth Star Wars film to be released overall.
+            some text
+            <br>
+          </div>
+          <div class="icos">
+            <ion-icon name="heart-outline"></ion-icon>
+            <ion-icon name="bookmark-outline"></ion-icon>
           </div>
         </div>
       </div>
     </div>
-  
-    <div class="column is-narrow is-half box">
-      <div class="card">
+    <!-- Book -->
+    <div class="column is-narrow is-one-third ">
+      <div class="card curve">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src="./assets/images/Book.jfif" alt="Book Cover">
+          </figure>
+        </div>
         <div class="card-content">
           <div class="media">
-            <div class="media-left">
-              <figure class="image">
-                <img src="./assets/images/Book.jfif" alt="Placeholder image" id="poster">
-              </figure>
-            </div>
             <div class="media-content">
-              <p class="title is-1">Revenge of the Sith: Star Wars: Episode III</p>
-              <p class="subtitle is-1">Rating: 4.5/5 Stars</p>
+              <p class="title is-4">Revenge of the Sith: Star Wars: Episode III</p>
+              <p class="subtitle is-6">Rating: 4.5/5 Stars</p>
             </div>
           </div>
-  
+    
           <div class="content">
-            After years of civil war, the Separatists have battered the already faltering Republic nearly to the point of collapse.
-            On Coruscant, the Senate watches anxiously as Supreme Chancellor Palpatine aggressively strips away more and more
-            constitutional liberties in the name of safeguarding the Republic. Yoda, Mace Windu, and their fellow Masters grapple
-            with the Chancellor’ s disturbing move to assume control of the Jedi Council. And Anakin Skywalker, the prophesied
-            Chosen One, destined to bring balance to the Force, is increasingly consumed by his fear that his secret love, Senator
-            Padmé Amidala, will die.
+            some text
+            <br>
+          </div>
+          <div class="icos">
+            <ion-icon name="heart-outline"></ion-icon>
+            <ion-icon name="bookmark-outline"></ion-icon>
           </div>
         </div>
       </div>
     </div>
-  
+    </div>
+
   </article>
 
-  <!-- <section class="container">
-    <div class="row" id="movie">
-    </div>
-  </section>
 
-  <section class="container">
-    <div class="row" id="book">
-    </div>
-  </section> -->
-
-  <section class="columns is-desktop is-centered">
-
-    <div class="column is-narrow is-half box">
-      <div class="card">
-        <div class="card-content">
-          <div class="media">
-            <div class="media-left">
-              <figure class="image">
-                <div id="movie"></div>
-              </figure>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="column is-narrow is-half box">
-      <div class="card">
-        <div class="card-content">
-          <div class="media">
-            <div class="media-left">
-              <figure class="image">
-                <div id="book"></div>
-              </figure>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-  </section>
-
-  <footer class="footer">
+  <!-- Footer -->
+  <footer class="footer bottom">
     <div class="bd-footer-title has-text-centered">
       <p>
         <strong>BOOKBUSTER</strong> by Minh, Paul, Kenny, Scott and Sam. Sponsored by Blockbuster, IMBD and Google Books. License: <a href=""></a>
@@ -182,7 +148,8 @@
     </div>
   </footer>
   
-
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="./assets/JS/app.js"></script>
 </body>

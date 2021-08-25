@@ -16,37 +16,81 @@
   font-size: 25px;
 }
 
-#poster {
-  width: 200px;
-}
+/* #poster {
+  width: 300px;
+  align-content: center;
+} */
 
 .columns {
-  margin-left: 2%;
-  margin-right: 2%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .column {
   margin-top: 5%;
-  border: black solid 3px;
+  margin-bottom: 3%;
+  /* border: black solid 3px; */
   padding: 1%;
   margin-left: 21;
   margin-right: 1%;
   text-align: center;
-  background-color: #48cae4;
+  /* background-color: #48cae4; */
 }
 
 #search {
   justify-content: center;
 }
 
-#heightAdj {
+.fullSize {
   height: 100%;
 }
 
-.box {
+.curve {
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
 }
+
+.cd {
+  display: flex;
+  flex-direction: column;
+}
+
+.ct {
+  flex: 1;
+}
+
+ion-icon {
+  font-size: 2em;
+  color: blue;
+}
+
+.saveMovieIcon {
+  color: yellow;
+}
+
+.icos {
+  align-self: center;
+}
+
+.tile {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.is-child {
+  background-color: red;
+}
+
+.titleBox {
+  color: darkblue;
+}
+
+.columnHeader {
+  font-size: 50px;
+  text-decoration: underline blue;
+}
+

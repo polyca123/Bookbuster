@@ -35,24 +35,36 @@ document.getElementById('mainSearch').addEventListener('click', event => {
   const searchInput = document.getElementById('searchInput').value
 
   axios.get(`http://www.omdbapi.com/?apikey=7c6c005c&t=${searchInput}`)
-    .then(res => {
+    .then(movieRes => {
+      let movies = movieRes.data.Search
+      
       document.getElementById('searchInput').value = ''
       console.log(res)
-      let movie = res.data
-      document.getElementById('movie').innerHTML = `
-      <img src="${movie.Poster}" alt="Placeholder image" id="poster">
+
+      document.getElementById('movies').innerHTML = ''
+
+
+      movies.forEach(movie => {
+        document.getElementById('movie').innerHTML = `
+      
       `
+      })
+
+      document.getElementById('movie').value = ''
     })
     .catch(err => console.log(err))
 
   axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchInput}`)
     .then(res => {
       document.getElementById('searchInput').value = ''
-
       console.log(res)
+
+      document.getElementById('book').innerHTML = ''
+
       let book = res.data.items[0]
-      document.getElementById('book').innerHTML = `
-      <img src="${book.volumeInfo.imageLinks.thumbnail}">
+
+      document.getElementById('book').innerHTML =`
+      
       `
 
     })
