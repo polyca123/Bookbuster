@@ -198,7 +198,7 @@
                   <br>
                 </div>
                 <div class="icos">
-                  <button class="button deleteBookFav" type="submit">Remove from Favorites</button>
+                  <button class="button deleteBookFav" type="submit" data-id="fav${book.id}">Remove from Favorites</button>
                   <button class="button favBook" type="submit" data-id="fav${book.id}"><ion-icon name="bookmark-outline"></ion-icon></button>
                   <button class="button saveBook" type="submit" data-id="saved${book.id}"><ion-icon name="heart-outline"></ion-icon></button>
                 </div>
@@ -248,7 +248,7 @@
                     <br>
                   </div>
                   <div class="icos">
-                    <button class="button deleteMovieFav" type="submit">Remove from Favorites</button>
+                    <button class="button deleteMovieFav" type="submit" data-id="fav${movie.imdbID}">Remove from Favorites</button>
                     <button class="button favMovie" type="submit" data-id="fav${movie.imdbID}"><ion-icon name="bookmark" class="favMovieIcon"></ion-icon></button>
                     <button class="button saveMovie" type="submit" data-id="saved${movie.imdbID}"><ion-icon name="heart" class="saveMovieIcon"></ion-icon></button>
                   </div>
@@ -315,59 +315,56 @@
       // event.target.parentNode.parentNode.remove()
       } 
     }
-  })
 
-  document.addEventListener('click', event => {
-    if (event.target.classList.contains('deleteBookFav')) {
-      favoriteBooks = favoriteBooks.filter(book => book.id !== event.target.dataset.id)
-      localStorage.setItem('favoriteBooks',JSON.stringify(favoriteBooks))
-      event.target.parentNode.parentNode.parentNode.remove()
+    if (button.classList.contains('deleteBookFav')) {
+    favoriteBooks = favoriteBooks.filter(book => book !== button.dataset.id)
+    localStorage.setItem('favoriteBooks', JSON.stringify(favoriteBooks))
+    event.target.parentNode.parentNode.parentNode.remove()
     }
-  })
 
-  document.addEventListener('click', event => {
-    if (event.target.classList.contains('deleteMovieFav')) {
-      favoriteMovies = favoriteMovies.filter(book => book.id !== event.target.dataset.id)
-      localStorage.setItem('favoriteMovies',JSON.stringify(favoriteMovies))
-      event.target.parentNode.parentNode.parentNode.remove()
+    if (button.classList.contains('deleteMovieFav')) {
+    favoriteMovies = favoriteMovies.filter(movie => movie !== button.dataset.id)
+    localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies))
+    event.target.parentNode.parentNode.parentNode.remove()
     }
+
   })
 
 
-  // if (favoriteBooks.length !== 0) {
-  //   document.getElementById('favoriteBooks').innerHTML = ''
+  if (favoriteBooks.length !== 0) {
+    document.getElementById('favoriteBooks').innerHTML = ''
 
-  //   favoriteBooks.forEach(book => {
-  //     bookElem = 
-  //     `
-  //         <div class="column is-narrow is-half">
-  //           <div class="card">
-  //             <div class="card-content">
-  //               <div class="media">
-  //                 <div class="media-left">
-  //                   <figure class="image">
-  //                     <img src="${book.volumeInfo.imageLinks.smallThumbnail}" alt="Placeholder image" id="poster">
-  //                   </figure>
-  //                 </div>
-  //                 <div class="media-content">
-  //                   <p class="title is-1">${book.volumeInfo.title}</p>
-  //                   <p class="subtitle is-1">${book.volumeInfo.averageRating}</p>
-  //                 </div>
-  //               </div>
+    favoriteBooks.forEach(book => {
+      bookElem = 
+      `
+          <div class="column is-narrow is-half">
+            <div class="card">
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left">
+                    <figure class="image">
+                      <img src="${book.volumeInfo.imageLinks.smallThumbnail}" alt="Placeholder image" id="poster">
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <p class="title is-1">${book.volumeInfo.title}</p>
+                    <p class="subtitle is-1">${book.volumeInfo.averageRating}</p>
+                  </div>
+                </div>
 
-  //               <div class="content">
-  //                 ${book.volumeInfo.description}
-  //               </div>
-  //               <button class="button deleteBookFav" type="submit">Remove from Favorites</button>
-  //               <button class="button saveBook" type="submit" data-id="${book.id}">Save</button>
-  //               <h1>${book.id}</h1>
-  //             </div>
-  //           </div>
-  //         </div>
-  //         `
-  //         document.getElementById('favoriteBooks').append(bookElem)
-  //   });
-  // }
+                <div class="content">
+                  ${book.volumeInfo.description}
+                </div>
+                <button class="button deleteBookFav" type="submit">Remove from Favorites</button>
+                <button class="button saveBook" type="submit" data-id="${book.id}">Save</button>
+                <h1>${book.id}</h1>
+              </div>
+            </div>
+          </div>
+          `
+          document.getElementById('favoriteBooks').append(bookElem)
+    });
+  }
 
 
 //   let favorites = [
