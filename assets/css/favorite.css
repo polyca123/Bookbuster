@@ -4,6 +4,7 @@
   color: #ffb327;
 }
 
+<<<<<<< HEAD
 .subtitle {
   font-size: 25px;
 }
@@ -75,3 +76,8 @@ ion-icon {
 }
 
 
+=======
+#logo {
+  max-height: 4rem;
+}
+>>>>>>> 0ba3f37d9fb5f834d2f9524575cf4e4d15355873
