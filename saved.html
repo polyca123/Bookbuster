@@ -7,6 +7,11 @@
   <title>Bookbuster</title>
   <link rel="stylesheet" href="./assets/css/reset.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <!-- added google fonts and icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
+  <!-- end here -->
   <link rel="stylesheet" href="./assets/css/saved.css">
 </head>
 <body>
@@ -37,7 +42,41 @@
   </div>
 </nav>
 
+<button class="button is-primary" id="clearStorage">Clear Local Storage</button>
+
+<!-- added to input the local storage to page-->
+<div class="columns is-mobile is-centered">
+
+  <div class="column is-narrow is-half columnHeader">
+    <h1>Saved Movies!</h1>
+  </div>
+
+  <div class="column is-narrow is-half columnHeader">
+    <h1>Saved Books!</h1>
+  </div>
+
+</div>
+
+<div class="columns is-mobile is-centered">
+
+  <!-- need id movies -->
+  <div class="column is-narrow is-half favoriteMoviesCol" id="movies">
+  </div>
+
+  <!-- need id books -->
+  <div class="column is-narrow is-half favoriteBooksCol" id="books">
+  </div>
+
+</div>
+<!-- end here -->
+
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="./assets/JS/app.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    
+  <script src="./assets/JS/saved.js"></script>
 </body>
 </html>
