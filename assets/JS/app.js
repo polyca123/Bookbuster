@@ -25,34 +25,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
 })
 
-// Movie api key = 7c6c005c
 const axios = window.axios
 const localStorage = window.localStorage
 
-let movie = []
-const saved = JSON.parse(localStorage.getItem('saved')) || []
+// Local storage for saved book and saved movies for when user saves (clicks icon for each)
+const savedBooks = JSON.parse(localStorage.getItem('savedBooks')) || []
+const savedMovies = JSON.parse(localStorage.getItem('savedMovies')) || []
 
+// setting emtpy array
+let books = []
+let movies = []
+
+// when the mainSearch is clicked
 document.getElementById('mainSearch').addEventListener('click', event => {
   event.preventDefault()
 
-  const searchInput = document.getElementById('searchInput').value
-
   document.getElementById('mainSection').innerHTML = ''
 
-  axios.get(`http://www.omdbapi.com/?apikey=7c6c005c&s=${searchInput}`)
-    .then(movieRes => {
-      let movies = movieRes.data.Search
-      console.log(movieRes)
-      document.getElementById('searchInput').value = ''
+  // search variable set to the searchInput from user to be used for axios requests
+  const search = document.getElementById('searchInput').value
+  console.log(search);
 
-      let movieOutput = ''
+  // axios request for movies (omdb api)
+  axios.get(`http://www.omdbapi.com/?apikey=7c6c005c&s=${search}`)
+    .then(movieRes => {
+      movies = movieRes.data.Search
+      console.log(movies)
 
       document.getElementById('movies').innerHTML = ''
+      let movieOutput = ''
 
-      movies.forEach(movie => {
-
-        movieOutput +=
-          `
+      // For each movie in the response create html elements and append to the html section placeholder
+      // movies.forEach(movie => )
+      $.each(movies, (index, movie) => {
+        if (index > 10) {
+          return false
+        } else {
+          // const movieElem = document.createElement('div')
+          // movieElem.innerHTML =
+          movieOutput +=
+            `
               <div class="card cd">
                 <div class="card-image">
                   <figure class="image is-4by3">
@@ -71,39 +83,39 @@ document.getElementById('mainSearch').addEventListener('click', event => {
                     <br>
                   </div>
                   <div class="icos">
-
-                    <button class="button favMovie" type="submit" data-id="fav${movie.imdbID}">
-                      <ion-icon name="bookmark-outline"></ion-icon>
-                    </button>
-
-                    <button class="button saveMovie" type="submit"  data-id="saved${movie.imdbID}">
-                      <ion-icon name="heart-outline"></ion-icon>
-                    </button>
-
+                    <ion-icon name="bookmark-outline" class="button is-light saveMovie" data-id="${movie.imdbID}"></ion-icon>
                   </div>
                 </div>
               </div>
         `
+          // document.getElementById('movies').append(movieElem)
+          document.getElementById('movies').innerHTML = movieOutput
+        }
       })
-      document.getElementById('movies').innerHTML = movieOutput
 
-      // document.getElementById('movie').value = ''
-    })
-    .catch(err => console.log(err))
-
-  axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchInput}`)
-    .then(bookRes => {
       document.getElementById('searchInput').value = ''
-      console.log(bookRes);
-      let books = bookRes.data.items
-      let bookOutput = ''
+    })
+    .catch(movieErr => console.error(movieErr))
+
+  // axios requesst for books (google books api)
+  axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}`)
+    .then(bookRes => {
+      books = bookRes.data.items
+      console.log(books)
 
       document.getElementById('books').innerHTML = ''
+      let bookOutput = ''
 
-      books.forEach(book => {
-
-        bookOutput +=
-          `
+      // For each movie in teh response create html elements and append to the html section placeholder
+      // books.forEach(book => )
+      $.each(books, (index, book) => {
+        if (index > 10) {
+          return false
+        } else {
+          // const bookElem = document.createElement('div')
+          // bookElem.innerHTML =
+          bookOutput +=
+            `
             <div class="card cd">
               <div class="card-image">
                 <figure class="image is-4by3">
@@ -126,21 +138,40 @@ document.getElementById('mainSearch').addEventListener('click', event => {
                 </div>
 
                 <div class="icos">
-                  <button class="button favBook" type="submit" data-id="fav${book.id}">
-                  <ion-icon name="bookmark-outline"></ion-icon>
-                  </button>
-
-                  <button class="button saveBook" type="submit" data-id="saved${book.id}">
-                  <ion-icon name="heart-outline"></ion-icon>
-                  </button>
-
+                  <ion-icon name="bookmark-outline" class="button is-light saveBook" data-id="${book.id}"></ion-icon>
                 </div>
               </div>
             </div>
-          `
-
+        `
+          // document.getElementById('books').append(bookElem)
+          document.getElementById('books').innerHTML = bookOutput
+        }
       })
-      document.getElementById('books').innerHTML = bookOutput
+
+      document.getElementById('searchInput').value = ''
     })
-    .catch(err => console.log(err))
+    .catch(bookErr => console.error(bookErr))
+
+
 })
+
+// event listener when the save movie and save book button is clicked
+document.addEventListener('click', event => {
+
+  // if saveBook push to savedBooks local storage
+  if (event.target.classList.contains('saveBook')) {
+    const book = books.filter(book => book.id === event.target.dataset.id)[0]
+    savedBooks.push(book)
+    localStorage.setItem('savedBooks', JSON.stringify(savedBooks))
+    // event.target.parentNode.parentNode.remove()
+  }
+
+  // if saveMovie push to saveMovie local storage
+  if (event.target.classList.contains('saveMovie')) {
+    const movie = movies.filter(movie => movie.imdbID === event.target.dataset.id)[0]
+    savedMovies.push(movie)
+    localStorage.setItem('savedMovies', JSON.stringify(savedMovies))
+    // event.target.parentNode.parentNode.remove()
+  }
+})
+
