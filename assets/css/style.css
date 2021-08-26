@@ -7,8 +7,11 @@
 }
 
 #font {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   font-family: 'Notable', sans-serif;
-  font-size: 50px;
+  font-size: 7.7vw;
   color: #ffb327;
 }
 
@@ -77,10 +80,38 @@ ion-icon {
   align-self: center;
 }
 
-.title {
+.mainMovieTitle {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-family: 'Notable', sans-serif;
+  border: dashed black 2px;
+  margin: 5px;
+  background-color: #fdffb6;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.mainBookTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-family: 'Notable', sans-serif;
+  border: dashed black 2px;
+  margin: 5px;
+  background-color: #caffbf;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 .is-child {
@@ -96,3 +127,27 @@ ion-icon {
   text-decoration: underline blue;
 }
 
+.content {
+  font-size: 1.15em;
+  font-family: 'Tinos', serif;
+}
+
+.movieTitle {
+  border: dashed black 1px;
+  background-color: #fdffb6;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.bookTitle {
+  border: dashed black 1px;
+  background-color: #caffbf;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}

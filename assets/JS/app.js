@@ -61,8 +61,8 @@ document.getElementById('mainSearch').addEventListener('click', event => {
                 </div>
                 <div class="card-content ct">
                   <div class="media">
-                    <div class="media-content">
-                      <p class="title is-4">${movie.Title}</p><br>
+                    <div class="content">
+                      <h1 class="is-4 movieTitle">${movie.Title}</h1><br>
                       <h4 class="subtitle is-4">Released Year: ${movie.Year}</h4>
                     </div>
                   </div>
@@ -112,8 +112,8 @@ document.getElementById('mainSearch').addEventListener('click', event => {
               </div>
               <div class="card-content ct">
                 <div class="media">
-                  <div class="media-content">
-                    <p class="title is-4">${book.volumeInfo.title}</p><br>
+                  <div class="content">
+                    <h1 class="is-4 bookTitle">${book.volumeInfo.title}</h1><br>
                     <p class="subtitle is-6"><strong>Authors: </strong>${book.volumeInfo.authors}</p>
                     <h5 class="subtitle is-5">Published Date: ${book.volumeInfo.publishedDate}</h5>
                   </div>
