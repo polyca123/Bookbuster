@@ -41,7 +41,349 @@
     </div>
   </nav>
 
+  <!-- form for testing to see how elements show - to be deleted later -->
+  <div class="field">
+    <label class="label">Book Search for testing</label>
+    <div class="control">
+      <input class="input" type="text" placeholder="Text input" id="searchText">
+    </div>
+    <p class="help">help text</p>
+    <div class="control">
+      <button class="button is-primary" id="searchBtn">Submit</button>
+      <button class="button is-primary" id="clearStorage">Clear</button>
+
+    </div>
+  </div>
+
+
+  <div class="columns is-mobile is-centered">
+  
+    <div class="column is-narrow is-half columnHeader">
+      <h1>Favorite Movies!</h1>
+    </div>
+  
+    <div class="column is-narrow is-half columnHeader">
+      <h1>Favorite Books!</h1>
+    </div>
+  
+  </div>
+
+  <div class="columns is-mobile is-centered">
+  
+    <div class="column is-narrow is-half">
+      <div class="card fullSize cd">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src="./assets/images/Bookbuster.png" alt="Placeholder image">
+          </figure>
+        </div>
+        <div class="card-content ct">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4">Movie Title</p>
+              <p class="subtitle is-6">Movie Description</p>
+            </div>
+          </div>
+
+          <div class="content">
+            some text
+            <br>
+          </div>
+          <div class="icos">
+            <ion-icon name="heart-outline"></ion-icon>
+            <ion-icon name="bookmark-outline"></ion-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="column is-narrow is-half">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src="./assets/images/Bookbuster.png" alt="Placeholder image">
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <!-- <div class="media-left">
+                    <figure class="image is-48x48">
+                      <img src="./assets/images/Bookbuster.png" alt="Placeholder image">
+                    </figure>
+                  </div> -->
+            <div class="media-content">
+              <p class="title is-4">Movie Title</p>
+              <p class="subtitle is-6">Movie Description</p>
+            </div>
+          </div>
+      
+          <div class="content">
+            some text
+            <br>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  
+  </div>
+
+
+  <div class="columns is-mobile is-centered">
+  
+    <div class="column is-narrow is-half favoriteMoviesCol" id="movies">
+    </div>
+  
+    <div class="column is-narrow is-half favoriteBooksCol" id="books">
+    </div>
+  
+  </div>
+
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="./assets/JS/app.js"></script>
+
+  <!-- for testing -->
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <script>
+
+  const axios = window.axios
+  const localStorage = window.localStorage
+
+  const apiKey = '33420856'
+
+  document.getElementById('searchBtn').addEventListener('click', event => {
+    event.preventDefault()
+
+    let searchText = document.getElementById('searchText').value
+
+    console.log(searchText);
+
+    // books
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchText}`)
+      .then(bookRes => {
+        console.log(bookRes);
+
+        let books = bookRes.data.items
+        let bookOutput = ''
+
+        document.getElementById('books').innerHTML = ''
+        books.forEach(book => {
+
+          bookOutput +=
+           `
+          <div class="column is-narrow is-half">
+            <div class="card fullSize cd">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="${book.volumeInfo.imageLinks.smallThumbnail}" alt="Placeholder image">
+                </figure>
+              </div>
+              <div class="card-content ct">
+                <div class="media">
+                  <div class="media-content">
+                    <p class="title is-4">${book.volumeInfo.title}</p>
+                    <p class="subtitle is-6">${book.volumeInfo.averageRating}</p>
+                  </div>
+                </div>
+
+                <div class="content">
+                  ${book.volumeInfo.description}
+                  <h1>${book.id}</h1>
+                  <br>
+                </div>
+                <div class="icos">
+                  <button class="button deleteBookFav" type="submit" data-id="fav${book.id}">Remove from Favorites</button>
+                  <button class="button favBook" type="submit" data-id="fav${book.id}"><ion-icon name="bookmark-outline"></ion-icon></button>
+                  <button class="button saveBook" type="submit" data-id="saved${book.id}"><ion-icon name="heart-outline"></ion-icon></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          `
+        })
+        document.getElementById('books').innerHTML = bookOutput
+      })
+      .catch(err => console.log(err));
+
+
+      // movies
+      axios.get(`http://www.omdbapi.com/?apikey=${apiKey}&s=${searchText}`)
+        .then(movieRes => {
+
+          console.log(movieRes);
+
+          let movies = movieRes.data.Search
+          console.log(movies);
+          let movieOutput = ''
+
+          document.getElementById('movies').innerHTML = ''
+          movies.forEach(movie => {
+
+            movieOutput += 
+            `
+            <div class="column is-narrow is-half">
+              <div class="card fullSize cd">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="${movie.Poster}" alt="${movie.Title}">
+                  </figure>
+                </div>
+                <div class="card-content ct">
+                  <div class="media">
+                    <div class="media-content">
+                      <p class="title is-4">${movie.Title}</p>
+                      <p class="subtitle is-6">${movie}</p>
+                    </div>
+                  </div>
+
+                  <div class="content">
+                    ${movie.Year}
+                    <h1>${movie.imdbID}</h1>
+                    <br>
+                  </div>
+                  <div class="icos">
+                    <button class="button deleteMovieFav" type="submit" data-id="fav${movie.imdbID}">Remove from Favorites</button>
+                    <button class="button favMovie" type="submit" data-id="fav${movie.imdbID}"><ion-icon name="bookmark" class="favMovieIcon"></ion-icon></button>
+                    <button class="button saveMovie" type="submit" data-id="saved${movie.imdbID}"><ion-icon name="heart" class="saveMovieIcon"></ion-icon></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            `
+          })
+          document.getElementById('movies').innerHTML = movieOutput
+        })
+        .catch(err => console.log(err))
+
+  })
+
+  let favoriteBooks = JSON.parse(localStorage.getItem('favoriteBooks')) || []
+  let favoriteMovies = JSON.parse(localStorage.getItem('favoriteMovies')) || []
+  let savedBooks = JSON.parse(localStorage.getItem('savedBooks')) || []
+  let savedMovies = JSON.parse(localStorage.getItem('savedMovies')) || []
+
+  document.addEventListener('click', event => {
+
+    let button
+
+    if (event.target.parentNode.classList.contains('button')) {
+      button = event.target.parentNode
+    } else if (event.target.classList.contains('button')){
+      button = event.target
+    }
+
+    console.log(button);
+
+    if (button.classList.contains('favBook')) {
+      if (!favoriteBooks.includes(button.dataset.id)) {
+        favoriteBooks.push(button.dataset.id)
+        console.log(favoriteBooks);
+        localStorage.setItem('favoriteBooks', JSON.stringify(favoriteBooks))
+      // event.target.parentNode.parentNode.remove()
+      } 
+    }
+
+    if (button.classList.contains('favMovie')) {
+      if (!favoriteMovies.includes(button.dataset.id)) {
+        favoriteMovies.push(button.dataset.id)
+        console.log(favoriteMovies);
+        localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies))
+      // event.target.parentNode.parentNode.remove()
+      } 
+    }
+
+    if (button.classList.contains('saveBook')) {
+      if (!savedBooks.includes(button.dataset.id)) {
+        savedBooks.push(button.dataset.id)
+        console.log(savedBooks);
+        localStorage.setItem('savedBooks', JSON.stringify(savedBooks))
+      // event.target.parentNode.parentNode.remove()
+      } 
+    }
+
+    if (button.classList.contains('saveMovie')) {
+      if (!savedMovies.includes(button.dataset.id)) {
+        savedMovies.push(button.dataset.id)
+        console.log(savedMovies);
+        localStorage.setItem('savedMovies', JSON.stringify(savedMovies))
+      // event.target.parentNode.parentNode.remove()
+      } 
+    }
+
+    if (button.classList.contains('deleteBookFav')) {
+    favoriteBooks = favoriteBooks.filter(book => book !== button.dataset.id)
+    localStorage.setItem('favoriteBooks', JSON.stringify(favoriteBooks))
+    event.target.parentNode.parentNode.parentNode.remove()
+    }
+
+    if (button.classList.contains('deleteMovieFav')) {
+    favoriteMovies = favoriteMovies.filter(movie => movie !== button.dataset.id)
+    localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies))
+    event.target.parentNode.parentNode.parentNode.remove()
+    }
+
+  })
+
+
+  if (favoriteBooks.length !== 0) {
+    document.getElementById('favoriteBooks').innerHTML = ''
+
+    favoriteBooks.forEach(book => {
+      bookElem = 
+      `
+          <div class="column is-narrow is-half">
+            <div class="card">
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left">
+                    <figure class="image">
+                      <img src="${book.volumeInfo.imageLinks.smallThumbnail}" alt="Placeholder image" id="poster">
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <p class="title is-1">${book.volumeInfo.title}</p>
+                    <p class="subtitle is-1">${book.volumeInfo.averageRating}</p>
+                  </div>
+                </div>
+
+                <div class="content">
+                  ${book.volumeInfo.description}
+                </div>
+                <button class="button deleteBookFav" type="submit">Remove from Favorites</button>
+                <button class="button saveBook" type="submit" data-id="${book.id}">Save</button>
+                <h1>${book.id}</h1>
+              </div>
+            </div>
+          </div>
+          `
+          document.getElementById('favoriteBooks').append(bookElem)
+    });
+  }
+
+
+//   let favorites = [
+//   {
+//     bookId: {
+//       title: ,
+//       img: ,
+//     }
+//   }
+// ]
+
+  document.getElementById('clearStorage').addEventListener('click', event => {
+    event.preventDefault()
+    localStorage.clear()
+  })
+
+
+  </script>
+  
 </body>
 </html>
+
