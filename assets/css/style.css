@@ -96,3 +96,8 @@ ion-icon {
   text-decoration: underline blue;
 }
 
+.ct {
+  max-block-size: 400px;
+  min-block-size: 400px;
+  height:40vh;
+  overflow:scroll
