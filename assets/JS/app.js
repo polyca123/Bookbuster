@@ -47,7 +47,7 @@ document.getElementById('mainSearch').addEventListener('click', event => {
   console.log(search);
 
   // axios request for movies (omdb api)
-  axios.get(`http://www.omdbapi.com/?apikey=7c6c005c&s=${search}`)
+  axios.get(`https://www.omdbapi.com/?apikey=7c6c005c&s=${search}`)
     .then(movieRes => {
       movies = movieRes.data.Search
       console.log(movies)
@@ -164,7 +164,7 @@ document.addEventListener('click', event => {
     savedBooks.push(book)
     localStorage.setItem('savedBooks', JSON.stringify(savedBooks))
     // event.target.parentNode.parentNode.parentNode.remove()
-    event.target.setAttribute('name','bookmark')
+    event.target.setAttribute('name', 'bookmark')
     event.target.classList.remove('notSaved')
     event.target.classList.add('isSaved')
 
