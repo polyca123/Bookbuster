@@ -83,7 +83,7 @@ document.getElementById('mainSearch').addEventListener('click', event => {
                     <br>
                   </div>
                   <div class="icos">
-                    <ion-icon name="bookmark-outline" class="button is-light saveMovie" data-id="${movie.imdbID}"></ion-icon>
+                    <ion-icon name="bookmark-outline" id="saveMv" class="button is-light saveMovie notSaved" data-id="${movie.imdbID}"></ion-icon>
                   </div>
                 </div>
               </div>
@@ -138,7 +138,7 @@ document.getElementById('mainSearch').addEventListener('click', event => {
                 </div>
 
                 <div class="icos">
-                  <ion-icon name="bookmark-outline" class="button is-light saveBook" data-id="${book.id}"></ion-icon>
+                  <ion-icon name="bookmark-outline" id="saveBk" class="button is-light saveBook notSaved" data-id="${book.id}"></ion-icon>
                 </div>
               </div>
             </div>
@@ -163,7 +163,11 @@ document.addEventListener('click', event => {
     const book = books.filter(book => book.id === event.target.dataset.id)[0]
     savedBooks.push(book)
     localStorage.setItem('savedBooks', JSON.stringify(savedBooks))
-    // event.target.parentNode.parentNode.remove()
+    // event.target.parentNode.parentNode.parentNode.remove()
+    event.target.setAttribute('name','bookmark')
+    event.target.classList.remove('notSaved')
+    event.target.classList.add('isSaved')
+
   }
 
   // if saveMovie push to saveMovie local storage
@@ -172,6 +176,8 @@ document.addEventListener('click', event => {
     savedMovies.push(movie)
     localStorage.setItem('savedMovies', JSON.stringify(savedMovies))
     // event.target.parentNode.parentNode.remove()
+    event.target.setAttribute('name', 'bookmark')
+    event.target.classList.remove('notSaved')
+    event.target.classList.add('isSaved')
   }
 })
-

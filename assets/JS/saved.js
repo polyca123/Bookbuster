@@ -38,7 +38,8 @@ if (savedMovies.length !== 0) {
        </div>
        <div class="icos">
         <ion-icon name="trash-outline" class="button is-light deleteMovie" data-id="${movie.imdbID}"></ion-icon>
-        <a onclick="movieSelected('${movie.imdbID}')" class="button selectMovieDetails" href="#">Movie Details</a>
+        <hr>
+        <a onclick="movieSelected('${movie.imdbID}')" class="button is-primary selectMovieDetails" href="#">Movie Details</a>
        </div>
      </div>
    </div>
@@ -79,7 +80,8 @@ if (savedBooks.length !== 0) {
 
        <div class="icos">
         <ion-icon name="trash-outline" class="button is-light deleteBook" data-id="${book.id}"></ion-icon>
-        <a onclick="bookSelected('${book.id}')" class="button selectBookDetails" href="#">Book Details</a>
+        <hr>
+        <a onclick="bookSelected('${book.id}')" class="button is-primary selectBookDetails" href="#">Book Details</a>
        </div>
      </div>
    </div>

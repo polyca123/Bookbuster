@@ -121,6 +121,7 @@ ion-icon {
 .columnHeader {
   font-size: 50px;
   text-decoration: underline blue;
+<<<<<<< HEAD
 }
 
 .ct {
@@ -158,4 +159,6 @@ ion-icon {
 .media {
   display: flex;
   justify-content: center;
+=======
+>>>>>>> 750af806c26f53256341f4968641dff8e2b89171
 }
