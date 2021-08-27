@@ -24,7 +24,6 @@
 
 .column {
   margin-top: 5%;
-  margin-bottom: 3%;
   /* border: black solid 3px; */
   padding: 1%;
   margin-left: 21;
@@ -65,6 +64,7 @@ ion-icon {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  font-size: 1.5rem;
 }
 
 .is-child {
@@ -83,4 +83,67 @@ ion-icon {
 .content {
   font-size: 1.15em;
   font-family: 'Tinos', serif;
+}
+
+.mainMovieTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-family: 'Notable', sans-serif;
+  border: dashed black 2px;
+  margin: 5px;
+  background-color: #fdffb6;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.mainBookTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-family: 'Notable', sans-serif;
+  border: dashed black 2px;
+  margin: 5px;
+  background-color: #caffbf;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.movieTitle {
+  border: dashed black 1px;
+  background-color: #fdffb6;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.bookTitle {
+  border: dashed black 1px;
+  background-color: #caffbf;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.media {
+  display: flex;
+  justify-content: center;
+}
+
+.clearButton {
+  display: flex;
 }
