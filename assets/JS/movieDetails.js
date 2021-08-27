@@ -3,7 +3,7 @@ function getMovie() {
   let imdbID = localStorage.getItem('imdbID')
   console.log(imdbID);
 
-  axios.get(`http://www.omdbapi.com/?apikey=7c6c005c&i=${imdbID}`)
+  axios.get(`https://www.omdbapi.com/?apikey=7c6c005c&i=${imdbID}`)
     .then(res => {
 
       console.log(res);
