@@ -158,3 +158,8 @@ ion-icon {
   display: flex;
   justify-content: center;
 }
+
+.detail {
+  font-family: 'Tinos', serif;
+  font-size: 20px;
+}
