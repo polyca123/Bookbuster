@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tinos&display=swap" rel="stylesheet">
   <!-- end here -->
   <link rel="stylesheet" href="./assets/css/saved.css">
 </head>
@@ -42,29 +43,31 @@
   </div>
 </nav>
 
-<button class="button is-primary" id="clearStorage">Clear Local Storage</button>
+<section class="columns is-mobile is-centered">
+  <button class="column button is-half is-danger is-centered" id="clearStorage">Clear Local Storage</button>
+</section>
 
 <!-- added to input the local storage to page-->
-<div class="columns is-mobile is-centered">
+<header class="columns is-mobile is-centered">
 
-  <div class="column is-narrow is-half columnHeader">
-    <h1>Saved Movies!</h1>
+  <div class="column is-narrow is-one-third">
+    <p class="title">Saved Movies!</p>
   </div>
 
-  <div class="column is-narrow is-half columnHeader">
-    <h1>Saved Books!</h1>
+  <div class="column is-narrow is-one-third">
+    <p class="title">Saved Books!</p>
   </div>
 
-</div>
+</header>
 
 <div class="columns is-mobile is-centered">
 
   <!-- need id movies -->
-  <div class="column is-narrow is-half favoriteMoviesCol" id="movies">
+  <div class="column is-narrow is-one-third favoriteMoviesCol" id="movies">
   </div>
 
   <!-- need id books -->
-  <div class="column is-narrow is-half favoriteBooksCol" id="books">
+  <div class="column is-narrow is-one-third favoriteBooksCol" id="books">
   </div>
 
 </div>

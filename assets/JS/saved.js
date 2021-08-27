@@ -6,19 +6,19 @@ let savedMovies = JSON.parse(localStorage.getItem('savedMovies')) || []
 
 // clear local storage using the clear storage button
 document.getElementById('clearStorage').addEventListener('click', event => {
- event.preventDefault()
- localStorage.clear()
- location.reload()
+  event.preventDefault()
+  localStorage.clear()
+  location.reload()
 })
 
 // if savedMovies local storage is not 0, then for each movie create the inner html to populate items from local storage
 if (savedMovies.length !== 0) {
- document.getElementById('movies').innerHTML = ''
+  document.getElementById('movies').innerHTML = ''
 
- savedMovies.forEach(movie => {
-  const movieElem = document.createElement('div')
-  movieElem.innerHTML =
-   `
+  savedMovies.forEach(movie => {
+    const movieElem = document.createElement('div')
+    movieElem.innerHTML =
+      `
    <div class="card cd">
      <div class="card-image">
        <figure class="image is-4by3">
@@ -27,7 +27,7 @@ if (savedMovies.length !== 0) {
      </div>
      <div class="card-content ct">
        <div class="media">
-         <div class="media-content">
+         <div class="content">
            <p class="title is-4">${movie.Title}</p><br>
            <h4 class="subtitle is-4">Released Year: ${movie.Year}</h4>
          </div>
@@ -44,18 +44,18 @@ if (savedMovies.length !== 0) {
    </div>
    `
 
-  document.getElementById('movies').append(movieElem)
- })
+    document.getElementById('movies').append(movieElem)
+  })
 }
 
 // if savedBooks local storage is not 0, then for each book create the inner html to populate items from local storage
 if (savedBooks.length !== 0) {
- document.getElementById('books').innerHTML = ''
+  document.getElementById('books').innerHTML = ''
 
- savedBooks.forEach(book => {
-  const bookElem = document.createElement('div')
-  bookElem.innerHTML =
-   `
+  savedBooks.forEach(book => {
+    const bookElem = document.createElement('div')
+    bookElem.innerHTML =
+      `
    <div class="card cd">
      <div class="card-image">
        <figure class="image is-4by3">
@@ -64,7 +64,7 @@ if (savedBooks.length !== 0) {
      </div>
      <div class="card-content ct">
        <div class="media">
-         <div class="media-content">
+         <div class="content">
            <p class="title is-4">${book.volumeInfo.title}</p><br>
            <p class="subtitle is-6"><strong>Authors: </strong>${book.volumeInfo.authors}</p>
            <h5 class="subtitle is-5">Published Date: ${book.volumeInfo.publishedDate}</h5>
@@ -85,38 +85,63 @@ if (savedBooks.length !== 0) {
    </div>
    `
 
-  document.getElementById('books').append(bookElem)
- })
+    document.getElementById('books').append(bookElem)
+  })
 }
 
 // When the deleteBook and deleteMovie are clicked then remove the books and movies
 document.addEventListener('click', event => {
 
- if (event.target.classList.contains('deleteBook')) {
-  savedBooks = savedBooks.filter(book => book.id !== event.target.dataset.id)
-  localStorage.setItem('savedBooks', JSON.stringify(savedBooks))
-  event.target.parentNode.parentNode.parentNode.remove()
- }
+  if (event.target.classList.contains('deleteBook')) {
+    savedBooks = savedBooks.filter(book => book.id !== event.target.dataset.id)
+    localStorage.setItem('savedBooks', JSON.stringify(savedBooks))
+    event.target.parentNode.parentNode.parentNode.remove()
+  }
 
- if (event.target.classList.contains('deleteMovie')) {
-  savedMovies = savedMovies.filter(movie => movie.imdbID !== event.target.dataset.id)
-  localStorage.setItem('savedMovies', JSON.stringify(savedMovies))
-  event.target.parentNode.parentNode.parentNode.remove()
- }
+  if (event.target.classList.contains('deleteMovie')) {
+    savedMovies = savedMovies.filter(movie => movie.imdbID !== event.target.dataset.id)
+    localStorage.setItem('savedMovies', JSON.stringify(savedMovies))
+    event.target.parentNode.parentNode.parentNode.remove()
+  }
 })
 
 // function to grab id from movie selected and set to local storage so can grab id for seperate axios request
 function movieSelected(id) {
- localStorage.setItem('imdbID', id)
- window.location = 'movie.html'
- return false;
+  localStorage.setItem('imdbID', id)
+  window.location = 'movie.html'
+  return false;
 }
 
 // function to grab id from book selected and set to local storage so can grab id for seperate axios request
 function bookSelected(id) {
- localStorage.setItem('bookId', id)
- window.location = 'book.html'
- return false;
+  localStorage.setItem('bookId', id)
+  window.location = 'book.html'
+  return false;
 }
 
+// Bulma Java required for navbar
+document.addEventListener('DOMContentLoaded', () => {
 
+  // Get all "navbar-burger" elements
+  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0)
+
+  // Check if there are any navbar burgers
+  if ($navbarBurgers.length > 0) {
+
+    // Add a click event on each of them
+    $navbarBurgers.forEach(el => {
+      el.addEventListener('click', () => {
+
+        // Get the target from the "data-target" attribute
+        const target = el.dataset.target;
+        const $target = document.getElementById(target)
+
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        el.classList.toggle('is-active')
+        $target.classList.toggle('is-active')
+
+      })
+    })
+  }
+
+})
